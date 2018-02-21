@@ -12,14 +12,24 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBOutlet weak var tableView: UITableView!
     
-    var names = [String]()
+    var names = [String()] {
+        didSet {
+            defaults.set(names, forKey: period)
+        }
+    }
     var period = String()
+    let defaults = UserDefaults.standard
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
         self.tableView.isEditing = true
-        loadTestNames()
+        if let savedData = defaults.object(forKey: period) as? [String] {
+            names = savedData
+        }
+        else {
+            loadTestNames()
+        }
         navigationItem.title = period
       
     }
