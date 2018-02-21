@@ -31,6 +31,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             loadTestNames()
         }
         navigationItem.title = period
+        
+        defaults.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+        defaults.synchronize()
       
     }
 
@@ -91,13 +94,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         switch period
         {
         case "1st period" :
-            names = ["sue", "mary", "jim", "raplh", "tom"]
+            names = [" "]
         case "2nd period" :
-            names = ["bob", "jill", "timmy", "owen", "marsha", "felisha"]
+            names = [""]
         case "3rd period" :
-            names = ["zack", "joey", "jacob", "mikey", "jackie", "beth", "victoria", "burke"]
+            names = [""]
         default:
-            names = ["elizabeth", "beth", "liz", "bethany"]
+            names = [""]
         }
     }
     
