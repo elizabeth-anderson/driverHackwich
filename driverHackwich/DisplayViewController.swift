@@ -6,17 +6,24 @@
 //  Copyright © 2018 Elizabeth. All rights reserved.
 //
 
-import UIKit
+import UIKit //step 4
 
 class DisplayViewController: UIViewController
+
 {
     var period = String()
     override func viewDidLoad()
     {
         super.viewDidLoad()
         navigationItem.title = period
+        for i in 0..<nameLabels.count
+        {
+            nameLabels[i].text = String(i)
+            
+        }
         
     }
+    @IBOutlet var nameLabels: [UILabel]!
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         let dvc = segue.destination as! ViewController
