@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		245BB4AE20448474009643FA /* DisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 245BB4AD20448473009643FA /* DisplayViewController.swift */; };
 		3FB5914B202A272C002CD36C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB5914A202A272C002CD36C /* AppDelegate.swift */; };
 		3FB5914D202A272C002CD36C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FB5914C202A272C002CD36C /* ViewController.swift */; };
 		3FB59150202A272C002CD36C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FB5914E202A272C002CD36C /* Main.storyboard */; };
@@ -35,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		245BB4AD20448473009643FA /* DisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayViewController.swift; sourceTree = "<group>"; };
 		3FB59147202A272C002CD36C /* driverHackwich.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = driverHackwich.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FB5914A202A272C002CD36C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FB5914C202A272C002CD36C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				3FB5914A202A272C002CD36C /* AppDelegate.swift */,
 				3FB5914C202A272C002CD36C /* ViewController.swift */,
 				3FB59178202CC941002CD36C /* periodViewController.swift */,
+				245BB4AD20448473009643FA /* DisplayViewController.swift */,
 				3FB5914E202A272C002CD36C /* Main.storyboard */,
 				3FB59151202A272C002CD36C /* Assets.xcassets */,
 				3FB59153202A272C002CD36C /* LaunchScreen.storyboard */,
@@ -265,6 +268,7 @@
 				3FB5914D202A272C002CD36C /* ViewController.swift in Sources */,
 				3FB59179202CC941002CD36C /* periodViewController.swift in Sources */,
 				3FB5914B202A272C002CD36C /* AppDelegate.swift in Sources */,
+				245BB4AE20448474009643FA /* DisplayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
