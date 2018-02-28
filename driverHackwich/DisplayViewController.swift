@@ -11,16 +11,18 @@ import UIKit //step 4
 class DisplayViewController: UIViewController
 
 {
+    var names = [String]()
+    let defaults = UserDefaults.standard
     var period = String()
     override func viewDidLoad()
     {
         super.viewDidLoad()
         navigationItem.title = period
-        for i in 0..<nameLabels.count
-        {
-            nameLabels[i].text = String(i)
-            
-        }
+//        for i in 0..<nameLabels.count
+//        {
+//            nameLabels[i].text = String(i)
+//
+//        }
         
     }
     @IBOutlet var nameLabels: [UILabel]!
@@ -28,6 +30,22 @@ class DisplayViewController: UIViewController
     {
         let dvc = segue.destination as! ViewController
         dvc.period = period
+    }
+    
+    func resetNames ()
+    {
+        for i in 0..<min(names.count, nameLabels.count)
+        {
+            nameLabels[i].text = names[i]
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if let savedData = defaults.object(forKey: period) as? [String]
+        {
+            names = savedData
+        }
+        resetNames()
     }
 
    

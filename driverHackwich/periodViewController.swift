@@ -35,7 +35,7 @@ class periodViewController: UIViewController {
 
    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let dvc = segue.destination as! ViewController
+        let dvc = segue.destination as! DisplayViewController
         dvc.period = period
        
         

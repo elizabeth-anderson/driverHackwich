@@ -94,7 +94,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         switch period
         {
         case "1st period" :
-            names = [" "]
+            names = ["beth", "max", "sally","bill","wendy","huston","harry", "bob", "timmy", "zaine", "lipton", "libby"]
         case "2nd period" :
             names = [""]
         case "3rd period" :
@@ -103,6 +103,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             names = [""]
         }
     }
+    
+   
     
     
     
