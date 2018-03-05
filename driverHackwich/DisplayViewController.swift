@@ -11,9 +11,13 @@ import UIKit //step 4
 class DisplayViewController: UIViewController
 
 {
+    @IBOutlet weak var startButton: UIButton!
     var names = [String]()
     let defaults = UserDefaults.standard
     var period = String()
+    var timer = Timer()
+    var cycle = Double()
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -48,7 +52,29 @@ class DisplayViewController: UIViewController
         resetNames()
     }
 
+    @objc func updateDisplay() {
+        resetTimer()
+        var nameLabelIndices = [Int]()
+        for i in 0..<nameLabels.count
+               {
+                if nameLabels[i].text != ""{
+                    nameLabelIndices.append(i)
+                }
+        
+               }
+        
+    }
+    
+    func resetTimer() {
+        timer.invalidate()
+        timer = Timer.scheduledTimer(timeInterval: cycle, target: self, selector: #selector(updateDisplay), userInfo: nil, repeats: true)
+    }
+    
    
+    @IBAction func onStartButtonTapped(_ sender: Any) {
+        
+        
+    }
     
 
   
