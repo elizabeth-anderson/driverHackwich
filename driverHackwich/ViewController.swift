@@ -32,8 +32,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         }
         navigationItem.title = period
         
-        defaults.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
-        defaults.synchronize()
+    
       
     }
 
