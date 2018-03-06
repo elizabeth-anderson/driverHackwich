@@ -17,6 +17,7 @@ class DisplayViewController: UIViewController
     var period = String()
     var timer = Timer()
     var cycle = Double()
+  
     
     override func viewDidLoad()
     {
@@ -38,6 +39,7 @@ class DisplayViewController: UIViewController
     
     func resetNames ()
     {
+        cycle = 2.0
         for i in 0..<min(names.count, nameLabels.count)
         {
             nameLabels[i].text = names[i]
@@ -60,19 +62,41 @@ class DisplayViewController: UIViewController
                 if nameLabels[i].text != ""{
                     nameLabelIndices.append(i)
                 }
-        
                }
+        let randomPick = Int(arc4random_uniform(UInt32(nameLabelIndices.count)))
+        nameLabels[nameLabelIndices[randomPick]].text = ""
+        if nameLabelIndices.count <= 2 {
+            timer.invalidate()
+            startButton.setTitle("Reset", for: .normal)
+            startButton.backgroundColor = UIColor.yellow
+        }
         
     }
     
     func resetTimer() {
         timer.invalidate()
         timer = Timer.scheduledTimer(timeInterval: cycle, target: self, selector: #selector(updateDisplay), userInfo: nil, repeats: true)
+        cycle += 0.2
     }
     
    
     @IBAction func onStartButtonTapped(_ sender: Any) {
-        
+        let title = startButton.titleLabel!.text!
+        switch title {
+        case "Start" :
+            resetTimer()
+            startButton.setTitle("Stop", for: .normal)
+            startButton.backgroundColor = UIColor.red
+        case "Stop" :
+            timer.invalidate()
+            startButton.setTitle("Reset", for: .normal)
+            startButton.backgroundColor = UIColor.yellow
+        default:
+            updateDisplay()
+            startButton.setTitle("Start", for: .normal)
+            startButton.backgroundColor = UIColor.green
+            resetNames()
+        }
         
     }
     
