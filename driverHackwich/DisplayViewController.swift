@@ -12,7 +12,12 @@ class DisplayViewController: UIViewController
 
 {
     @IBOutlet weak var startButton: UIButton!
-    var names = [String]()
+    
+    var names = [String]() {
+        didSet {
+            defaults.set(names, forKey: period)
+        }
+    }
     let defaults = UserDefaults.standard
     var period = String()
     var timer = Timer()
@@ -39,11 +44,14 @@ class DisplayViewController: UIViewController
     
     func resetNames ()
     {
+        finalPickLabel.text = ""
         cycle = 2.0
         for i in 0..<min(names.count, nameLabels.count)
         {
             nameLabels[i].text = names[i]
+           
         }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,6 +62,8 @@ class DisplayViewController: UIViewController
         resetNames()
     }
 
+    @IBOutlet weak var finalPickLabel: UILabel!
+    
     @objc func updateDisplay() {
         resetTimer()
         var nameLabelIndices = [Int]()
@@ -64,14 +74,21 @@ class DisplayViewController: UIViewController
                 }
                }
         let randomPick = Int(arc4random_uniform(UInt32(nameLabelIndices.count)))
-        nameLabels[nameLabelIndices[randomPick]].text = ""
-        if nameLabelIndices.count <= 2 {
+      
+        if nameLabelIndices.count <= 1
+        {
+            let pickedName = nameLabels[nameLabelIndices[0]].text
+            finalPickLabel.text = pickedName
+            names.remove(at: names.index(of: pickedName!)!)
+            names.append(pickedName!)
             timer.invalidate()
             startButton.setTitle("Reset", for: .normal)
             startButton.backgroundColor = UIColor.yellow
         }
-        
+          nameLabels[nameLabelIndices[randomPick]].text = ""
     }
+    
+    
     
     func resetTimer() {
         timer.invalidate()
@@ -92,7 +109,6 @@ class DisplayViewController: UIViewController
             startButton.setTitle("Reset", for: .normal)
             startButton.backgroundColor = UIColor.yellow
         default:
-            updateDisplay()
             startButton.setTitle("Start", for: .normal)
             startButton.backgroundColor = UIColor.green
             resetNames()
