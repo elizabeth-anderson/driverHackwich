@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13770" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uTQ-h5-l1H">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uTQ-h5-l1H">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13770"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -475,12 +475,17 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.92854601144790649" green="0.97033983469009399" blue="0.31788328289985657" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="8df-li-Pdb"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="c8e-nr-Gfq" appends="YES" id="0WW-TM-NV1"/>
+                        </connections>
                     </view>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="finalPickLabel" destination="qf5-99-HdT" id="yJm-ch-Jtf"/>
+                        <outlet property="labelView" destination="Nzb-Ys-E0d" id="mUd-z1-j8C"/>
                         <outlet property="startButton" destination="TmX-2N-Ik0" id="c9u-Po-tcL"/>
                         <outletCollection property="nameLabels" destination="jNb-aU-vv4" collectionClass="NSMutableArray" id="Ji4-Gh-SGj"/>
                         <outletCollection property="nameLabels" destination="b0S-t2-n7G" collectionClass="NSMutableArray" id="gXd-an-g7f"/>
@@ -515,6 +520,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aQH-7f-c9T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="c8e-nr-Gfq">
+                    <connections>
+                        <action selector="onTappedNameLabel:" destination="O8L-bE-oa4" id="cmU-2k-tdI"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1248.8" y="317.99100449775113"/>
         </scene>

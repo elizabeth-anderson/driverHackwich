@@ -8,11 +8,10 @@
 
 import UIKit //step 4
 
-class DisplayViewController: UIViewController
-
-{
+class DisplayViewController: UIViewController {
     @IBOutlet weak var startButton: UIButton!
     
+    @IBOutlet weak var labelView: UIView!
     var names = [String]() {
         didSet {
             defaults.set(names, forKey: period)
@@ -49,7 +48,7 @@ class DisplayViewController: UIViewController
         for i in 0..<min(names.count, nameLabels.count)
         {
             nameLabels[i].text = names[i]
-           
+            nameLabels[i].textColor = UIColor.black
         }
         
     }
@@ -96,6 +95,14 @@ class DisplayViewController: UIViewController
         cycle += 0.2
     }
     
+    func removeGrayNames() {
+        for nameLabel in nameLabels {
+            if nameLabel.textColor == UIColor.gray {
+                nameLabel.text = ""
+            }
+        }
+    }
+    
    
     @IBAction func onStartButtonTapped(_ sender: Any) {
         let title = startButton.titleLabel!.text!
@@ -116,7 +123,22 @@ class DisplayViewController: UIViewController
         
     }
     
-
+    @IBAction func onTappedNameLabel(_ sender: UITapGestureRecognizer) {
+        for nameLabel in nameLabels {
+            if nameLabel.frame.contains(sender.location(in: labelView)) {
+                if nameLabel.textColor == UIColor.black {
+                    nameLabel.textColor = UIColor.gray
+                }
+                else {
+                    nameLabel.textColor = UIColor.black
+                }
+            }
+        }
+        removeGrayNames()
+        
+    }
+    
+    
   
 
 }
